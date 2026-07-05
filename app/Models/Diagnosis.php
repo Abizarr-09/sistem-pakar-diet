@@ -9,13 +9,19 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Diagnosis extends Model
 {
     protected $fillable = [
-        'user_id', 'result_diet_id', 'result_diet_name',
-        'result_description', 'result_pantangan', 'result_explanation'
+        'user_id', 'patient_id', 'result_diet_id', 'result_diet_name',
+        'result_description', 'result_pantangan', 'result_explanation',
+        'secondary_diet_instructions',
     ];
 
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function patient(): BelongsTo
+    {
+        return $this->belongsTo(Patient::class);
     }
 
     public function resultDiet(): BelongsTo

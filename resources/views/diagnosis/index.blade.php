@@ -11,7 +11,7 @@
                 <div class="p-6 lg:p-8">
                     <div class="text-center mb-8">
                         <h3 class="text-2xl font-bold text-gray-900">Sistem Pakar Penentuan Jenis Diet</h3>
-                        <p class="mt-2 text-gray-600">Pilih penyakit yang Anda derita untuk mendapatkan rekomendasi diet yang tepat</p>
+                        <p class="mt-2 text-gray-600">Masukkan data pasien dan pilih penyakit yang diderita untuk mendapatkan rekomendasi diet</p>
                     </div>
 
                     @if ($errors->any())
@@ -28,9 +28,40 @@
                     <form action="{{ route('diagnosis.process') }}" method="POST" id="diagnosisForm">
                         @csrf
 
+                        <div class="bg-gradient-to-r from-blue-50 to-cyan-50 border border-blue-100 rounded-xl p-6 mb-8">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+                                <svg class="w-5 h-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                </svg>
+                                Identitas Pasien
+                            </h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">No. Rekam Medis <span class="text-red-500">*</span></label>
+                                    <input type="text" name="rm_number" value="{{ old('rm_number') }}" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500" placeholder="RM-001" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Nama Pasien <span class="text-red-500">*</span></label>
+                                    <input type="text" name="patient_name" value="{{ old('patient_name') }}" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500" placeholder="Nama lengkap" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Usia <span class="text-red-500">*</span></label>
+                                    <input type="number" name="patient_age" value="{{ old('patient_age') }}" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500" placeholder="0" min="0" max="150" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Jenis Kelamin <span class="text-red-500">*</span></label>
+                                    <select name="patient_gender" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500" required>
+                                        <option value="">Pilih</option>
+                                        <option value="L" {{ old('patient_gender') == 'L' ? 'selected' : '' }}>Laki-laki</option>
+                                        <option value="P" {{ old('patient_gender') == 'P' ? 'selected' : '' }}>Perempuan</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="mb-6">
                             <label class="block text-sm font-semibold text-gray-700 mb-3">
-                                Penyakit yang diderita <span class="text-red-500">*</span>
+                                Penyakit yang diderita pasien <span class="text-red-500">*</span>
                             </label>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                 @foreach ($diseases as $disease)
@@ -76,25 +107,25 @@
                             <div class="w-12 h-12 bg-emerald-200 rounded-full flex items-center justify-center mx-auto mb-3">
                                 <span class="text-emerald-700 font-bold text-lg">1</span>
                             </div>
-                            <p class="text-sm text-emerald-700">Pilih penyakit yang Anda derita</p>
+                            <p class="text-sm text-emerald-700">Input data pasien</p>
                         </div>
                         <div class="text-center">
                             <div class="w-12 h-12 bg-emerald-200 rounded-full flex items-center justify-center mx-auto mb-3">
                                 <span class="text-emerald-700 font-bold text-lg">2</span>
                             </div>
-                            <p class="text-sm text-emerald-700">Sistem melakukan forward chaining</p>
+                            <p class="text-sm text-emerald-700">Pilih penyakit yang diderita</p>
                         </div>
                         <div class="text-center">
                             <div class="w-12 h-12 bg-emerald-200 rounded-full flex items-center justify-center mx-auto mb-3">
                                 <span class="text-emerald-700 font-bold text-lg">3</span>
                             </div>
-                            <p class="text-sm text-emerald-700">Prioritas berdasarkan bobot tertinggi</p>
+                            <p class="text-sm text-emerald-700">Forward chaining berdasarkan bobot</p>
                         </div>
                         <div class="text-center">
                             <div class="w-12 h-12 bg-emerald-200 rounded-full flex items-center justify-center mx-auto mb-3">
                                 <span class="text-emerald-700 font-bold text-lg">4</span>
                             </div>
-                            <p class="text-sm text-emerald-700">Dapatkan rekomendasi diet+penjelasan</p>
+                            <p class="text-sm text-emerald-700">Dapatkan rekomendasi diet + cetak</p>
                         </div>
                     </div>
                 </div>

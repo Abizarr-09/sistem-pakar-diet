@@ -14,7 +14,7 @@ class DiagnosisPolicy
 
     public function view(User $user, Diagnosis $diagnosis): bool
     {
-        return $user->id === $diagnosis->user_id;
+        return $user->id === $diagnosis->user_id || $user->role === 'admin';
     }
 
     public function create(User $user): bool
@@ -29,6 +29,6 @@ class DiagnosisPolicy
 
     public function delete(User $user, Diagnosis $diagnosis): bool
     {
-        return $user->id === $diagnosis->user_id;
+        return $user->id === $diagnosis->user_id || $user->role === 'admin';
     }
 }

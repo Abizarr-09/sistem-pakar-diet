@@ -7,6 +7,16 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <form method="GET" action="{{ route('history.index') }}" class="mb-6">
+                <div class="flex gap-3">
+                    <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari berdasarkan No. RM atau Nama Pasien..." class="flex-1 border-gray-300 rounded-lg shadow-sm focus:ring-emerald-500 focus:border-emerald-500">
+                    <button type="submit" class="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 font-medium">Cari</button>
+                    @if (request('search'))
+                        <a href="{{ route('history.index') }}" class="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 font-medium">Reset</a>
+                    @endif
+                </div>
+            </form>
+
             @if ($diagnoses->count() > 0)
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     @foreach ($diagnoses as $diagnosis)
