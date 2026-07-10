@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>NutrimED - Sistem Pakar Penentuan Jenis Diet</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -29,12 +29,11 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
             <div class="mb-6">
                 <a href="/" class="flex flex-col items-center">
-                    <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-200">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                        </svg>
+                    <div class="w-20 h-20 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-200 overflow-hidden">
+                        <x-nutrimed-logo :iconOnly="true" size="w-full h-full" class="rounded-2xl" />
                     </div>
-                    <span class="mt-2 text-sm font-semibold text-emerald-700">Sistem Pakar Diet</span>
+                    <span class="mt-2 text-lg font-bold text-emerald-700 tracking-wide">Nutrim<span class="text-emerald-500">ED</span></span>
+                    <span class="text-xs text-gray-500 -mt-0.5">Sistem Pakar Penentuan Diet</span>
                 </a>
             </div>
 

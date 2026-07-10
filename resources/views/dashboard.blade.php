@@ -50,7 +50,7 @@
                             </div>
                             <div class="ml-4">
                                 <p class="text-sm font-medium text-gray-500">Penyakit</p>
-                                <p class="text-2xl font-bold text-gray-900">12</p>
+                                <p class="text-2xl font-bold text-gray-900">11</p>
                             </div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
                                     </svg>
                                 </div>
-                                <p class="ml-3 text-sm text-gray-600">Pilih penyakit yang Anda derita dari 12 penyakit yang tersedia</p>
+                                <p class="ml-3 text-sm text-gray-600">Pilih penyakit yang Anda derita dari 11 penyakit yang tersedia</p>
                             </div>
                             <div class="flex items-start">
                                 <div class="flex-shrink-0 w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center mt-0.5">
@@ -131,7 +131,7 @@
                             </div>
                             <div class="bg-gray-50 rounded-lg p-4 border border-gray-100">
                                 <h4 class="text-sm font-semibold text-gray-700 mb-2">5 Jenis Diet</h4>
-                                <p class="text-sm text-gray-600">Sistem menyediakan 5 jenis diet: Rendah Kalori, Diabetes, Rendah Garam, Rendah Purin, dan Tinggi Serat — masing-masing dengan penjelasan dan pantangan makanan.</p>
+                                <p class="text-sm text-gray-600">Sistem menyediakan 5 jenis diet: Jantung, DM (Diabetes Melitus), Rendah Purin, Rendah Protein dan Rendah Garam — masing-masing dengan penjelasan dan pantangan makanan.</p>
                             </div>
                         </div>
                     </div>
